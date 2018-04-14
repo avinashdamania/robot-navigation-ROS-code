@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script type = "text/javascript" src = "js/jquery/jquery-latest.js"></script>
+    <script type = "text/javascript" src = "js/ros/ros.js"></script>
+    <script type = "text/javascript" src = "js/ros/common.js"></script>
+    <script>
+    function log(msg) {$('#log').append(msg.toString() + '<br>'); }
+    function start() {
+        log("Connecting to rosbridge.");
+        var node = new ros.NodeHandle("ws://localhost:9090");
+        node.setOnClose(function(e) {
+            log("Disconnected or Can't Connect.");
+        });
+        node.setOnError(function(e) {
+            log("Unknown error!");
+        });
+        node.setOnOpen(function(e) {
+            log("Connection to rosbridge established.");
+            setInterval(function() {
+                var currentTime=new Date();
+                var hours = currentTime.getHours();
+                var minutes = currentTime.getMinutes();
+                var seconds = currentTime.getSeconds();
+                var timeMessage = "It is now " + hours+":" + minutes + ":" + seconds;
+                node.publish('/talker', 'std_msgs/String', ros.json({data: timeMessage}));
+            }, 1000);
+            node.subscribe('/talker', 'std_msgs/String', function(msg){log(msg.data)});
+            
+        });
+    }
+</script>
+</head>
+<body onload = "start()" style = "margin:0;padding:0;background-color:white;overflow:hidden">
+<div style="font-family: fixed-width; font-size: small;" id = "log"></div>
+</body>
+</html>
