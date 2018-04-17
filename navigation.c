@@ -27,6 +27,10 @@ int main(int argc, char** argv) {
     
     ROS_INFO("Sending goal");
     actionClient.sendGoal(goal);
+
+	while(ros::ok) {
+
+	}
     
     actionClient.waitForResult();
     
