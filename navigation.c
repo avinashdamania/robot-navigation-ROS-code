@@ -9,7 +9,7 @@ typedef actionlib::SimpleActionClient<move_base_msg::MoveBaseAction> MoveBaseCli
 //navigation plays a crucial role in our project. 
 
 const int numberOfRooms = 4; 
-const std::string rooms = {"2.210", "4.304", "5.302", "6.302"};
+const std::string rooms[] = {"2.210", "4.304", "5.302", "6.302"};
 
 using namespace std; 
 int main(int argc, char** argv) {
