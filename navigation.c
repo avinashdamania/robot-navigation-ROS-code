@@ -1,46 +1,67 @@
 #include <ros/ros.h>
 #include <move_base_msgs/MoveBaseAction.h>
+#include "plan_execution/ExecutePlanAction.h"
 #include <actionlib/client/simple_action_client.h>
 
-typedef actionlib::SimpleActionClient<move_base_msg::MoveBaseAction> MoveBaseClient;
+typedef actionlib::SimpleActionClient<plan_execution::ExecutePlanAction> client; 
 
-//credits to ROS.org Robot Navigation C++ tutorial 
-//not exactly functional but good starting point especially when 
-//navigation plays a crucial role in our project. 
-
+//navigation code based on Nick Walker's BWI go_to_location and go_to_door code for BWI API
+//not final; subject to change. 
 const int numberOfRooms = 4; 
 const std::string rooms[] = {"2.210", "4.304", "5.302", "6.302"};
 
 using namespace std; 
 int main(int argc, char** argv) {
-    //activating action client
-    MoveBaseClient actionClient("move_base", true);
+    ros::init(argc, argv, "navigation");
+    ros::NodeHandle n;
+
+    ros::NodeHandle privateNode("~");
+    string location;
+    privateNode.param<string>("location", location, "13_414b"); 
+
+    ROS_INFO_STREAM("going to " << location);
+
+    Client client("action_executor/execute_plan", true);
+    client.waitForServer(); 
     
-    move_base_msgs::MoveBaseGoal goal;
+    plan_execution:ExecutePlanGoal goal;
     
-    goal.target_pose.header.frame_id = "base_link";
-    goal.target_pose.header.stamp = ros::Time::now();
+    plan_execution::AspRule rule;
+    plan_execution::AspFluent fluent;
+    fluent.name = "not at";
+
+    fluent.variables.push_back(location); 
     
-    //creating goal to move 1 meter forward
-    goal.target_pose.pose.position.x = 1.0;
-    goal.target_pose.pose.orientation.w = 1.0; 
+    rule.body.push_back(fluent);
+    goal.aspGoal.push_back(rule); 
     
     ROS_INFO("Sending goal");
     actionClient.sendGoal(goal);
 
-	while(ros::ok) {
-
-	}
+    ros::Rate wait_rate(10);
+    while(ros::ok() && !client.getState().isDone()) {
+	wait_rate.sleep();
+    }
     
-    actionClient.waitForResult();
+    if(!client.getState().isDone()) {
+	ROS_INFO("Canceling goal");
+	client.cancelGoal();
+	for(int i = 0; !client.getState.isDone() && i < 50; ++i) 
+	    wait_rate.sleep();
+    }
     
     //checking if operation was success
-    if(actionClient.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
-        ROS_INFO("SUCCESS");
+    if(client.getState() == actionlib::SimpleClientGoalState::ABORTED) {
+	ROS_INFO("Aborted");
+    }
+    else if(client.getState() == actionlib::SimpleClientGoalState::PREEMPTED) {
+	ROS_INFO("Preempted");
+    }
+    else if(client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
+	ROS_INFO("Succeeded!");
+    }
     else
-        ROS_INFO("FAILED");
+	ROS_INFO("Terminated"); 
+
+    return 0; 
 }
-//will elaborate more on this code as the main purpose of this navigation 
-//is to have to robot lead to the events happening around the GDC
-//will have to add code that has the robot navigate through a plan to get to
-//the event and robot stopping by each room for the event. 
