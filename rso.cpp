@@ -1,33 +1,24 @@
 #include <ros/ros.h>
 #include "plan_execution/ExecutePlanAction.h"
 #include <actionlib/client/simple_action_client.h>
+#include "std_msgs/String.h"
 
 typedef actionlib::SimpleActionClient<plan_execution::ExecutePlanAction> Client;
 
 
 using namespace std;
 
-int main(int argc, char**argv) {
-  ros::init(argc, argv, "door_navigation");
-  ros::NodeHandle n;
+  //std::queue<string> doors;
 
-  ros::NodeHandle privateNode("~");
-  
-  std::vector<string> doors;
-  
-  doors.push_back("d3_424");
 
-  Client client("/action_executor/execute_plan", true);
-  client.waitForServer();
 
-  bool fromAtoB = true;
-  int count;
-  count = 0;
+void navCallback(const std_msgs::String::ConstPtr& loc) {
 
-  while (ros::ok() && count < doors.size()) {
-
-    string location = doors.at(count);
-	count++;
+    Client client("/action_executor/execute_plan", true);
+    client.waitForServer();
+    string location = loc->data;
+    //string location = doors.front();
+    //doors.pop();
 
     ROS_INFO_STREAM("going to " << location);
 
@@ -44,25 +35,11 @@ int main(int argc, char**argv) {
 
     ROS_INFO("sending goal");
     client.sendGoalAndWait(goal);
-	  
+
+
     ros::Rate wait_rate(10);
-    
-    ros::Publisher chatter_pub = n.advertise<std_msg::String(location, 1000); 
-    ros::Rate loop_rate(10); //same thing as wait_rate(10)???
-    int countPublish = 0; 
     while (ros::ok() && !client.getState().isDone()) {
-	    	std_msgs::String msg;
-	    	
-	    	std::stringstream ss;
-	    	ss << location;
-	    	msg.data = ss.str();
-	    	ROS_INFO("%s", msg.data.c_str()); 
-	    
-	    	chatter_pub.publish(msg);
-	    
-	    	ros::spin();
 		wait_rate.sleep();
-	    	++countPublish; 
     }
 
 
@@ -84,10 +61,32 @@ int main(int argc, char**argv) {
       ROS_INFO("Preempted");
     } else if (client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
       ROS_INFO("Succeeded!");
-    } else
+    } else {
       ROS_INFO("Terminated");
+    }
 
-  }
+
+  
+
+}
+
+
+
+
+int main(int argc, char**argv) {
+  ros::init(argc, argv, "door_navigation");
+  ros::NodeHandle n;
+
+  
+
+  
+  //doors.push("d3_424");
+
+
+
+  ros::Subscriber sub = n.subscribe("roomNumber", 100, navCallback);
+
+  ros::spin();
 
   return 0;
 }
