@@ -44,11 +44,25 @@ int main(int argc, char**argv) {
 
     ROS_INFO("sending goal");
     client.sendGoalAndWait(goal);
-
-
+	  
     ros::Rate wait_rate(10);
+    
+    ros::Publisher chatter_pub = n.advertise<std_msg::String(location, 1000); 
+    ros::Rate loop_rate(10); //same thing as wait_rate(10)???
+    int countPublish = 0; 
     while (ros::ok() && !client.getState().isDone()) {
+	    	std_msgs::String msg;
+	    	
+	    	std::stringstream ss;
+	    	ss << location;
+	    	msg.data = ss.str();
+	    	ROS_INFO("%s", msg.data.c_str()); 
+	    
+	    	chatter_pub.publish(msg);
+	    
+	    	ros::spin();
 		wait_rate.sleep();
+	    	++countPublish; 
     }
 
 
