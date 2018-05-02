@@ -37,29 +37,22 @@ void navCallback(const std_msgs::String::ConstPtr& loc) {
     ROS_INFO("sending goal");
     client.sendGoalAndWait(goal);
     
-    
     ros::Rate wait_rate(10);
+
     while (ros::ok() && !client.getState().isDone()) {
-        
-        
-        
-        
         wait_rate.sleep();
     }
-    
-    
+
     if(!client.getState().isDone()) {
         ROS_INFO("canceling goal");
         client.cancelGoal();
-        
-        
-        for (int i = 0; i < 50 && !client.getState().isDone();i++) {
+        for (int i = 0; i < 50 && !client.getState().isDone(); i++) {
             wait_rate.sleep();
         }
     }
-    
-    
-    
+
+    double goalStartTime = ros::Time::now().toSec();
+
     if (client.getState() == actionlib::SimpleClientGoalState::ABORTED) {
         ROS_INFO("Aborted");
     } else if (client.getState() == actionlib::SimpleClientGoalState::PREEMPTED) {
@@ -67,17 +60,28 @@ void navCallback(const std_msgs::String::ConstPtr& loc) {
     } else if (client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
         ROS_INFO("Succeeded!");
         std_msgs::String msg;
-        
         std::stringstream ss;
         ss << "arrived";
         msg.data = ss.str();
         ROS_INFO("%s", msg.data.c_str());
-        
         chatter_pub.publish(msg);
     } else {
         ROS_INFO("Terminated");
     }
     
+
+    while (ros::ok()) {
+    double currentTime = ros::Time::now().toSec();
+    double timeElapsed =  currentTime - goalStartTime;
+        if (timeElapsed > 20.0) {
+            location = "d3_414a1";
+            fluent.variables.push_back(location);
+            rule.body.push_back(fluent);
+            goal.aspGoal.push_back(rule);
+            ROS_INFO("idle for 20 seconds; returning to lab");
+            client.sendGoalAndWait(goal);
+        }
+    }
     
     
     
