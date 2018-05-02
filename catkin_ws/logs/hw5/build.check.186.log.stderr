@@ -1,0 +1,10 @@
+[31m[1mCMake Error[0m at /home/users/fri/matthew_ws/catkin_ws/src/hw5/CMakeLists.txt:138 (add_executable):
+  add_executable called with incorrect number of arguments
+
+
+[31m[1mCMake Error[0m at /home/users/fri/matthew_ws/catkin_ws/src/hw5/CMakeLists.txt:154 (target_link_libraries):
+  Cannot specify link libraries for target "hw5_node" which is not built by
+  this project.
+
+
+make: *** [cmake_check_build_system] Error 1

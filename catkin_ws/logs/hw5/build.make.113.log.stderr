@@ -1,0 +1,14 @@
+CMakeFiles/hw5_node.dir/src/hw5_node.cpp.o: In function `main':
+hw5_node.cpp:(.text+0x0): multiple definition of `main'
+CMakeFiles/hw5_node.dir/src/hw5_nav_node.cpp.o:hw5_nav_node.cpp:(.text+0x26c): first defined here
+collect2: error: ld returned 1 exit status
+make[2]: *** [/home/users/fri/matthew_ws/catkin_ws/devel/.private/hw5/lib/hw5/hw5_node] Error 1
+make[1]: *** [CMakeFiles/hw5_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+CMakeFiles/hw5_nav_node.dir/src/hw5_node.cpp.o: In function `main':
+hw5_node.cpp:(.text+0x0): multiple definition of `main'
+CMakeFiles/hw5_nav_node.dir/src/hw5_nav_node.cpp.o:hw5_nav_node.cpp:(.text+0x26c): first defined here
+collect2: error: ld returned 1 exit status
+make[2]: *** [/home/users/fri/matthew_ws/catkin_ws/devel/.private/hw5/lib/hw5/hw5_nav_node] Error 1
+make[1]: *** [CMakeFiles/hw5_nav_node.dir/all] Error 2
+make: *** [all] Error 2

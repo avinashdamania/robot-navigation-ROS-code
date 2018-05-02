@@ -1,0 +1,20 @@
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:[m[K In member function ‘[01m[Kvirtual void OffsetPR::receivePose(geometry_msgs::Pose&)[m[K’:
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:26:2:[m[K [01;31m[Kerror: [m[K‘[01m[KMatrixXD[m[K’ is not a member of ‘[01m[KEigen[m[K’
+  Eigen::MatrixXD translation2 = rotation.matrix() * translation;
+[01;32m[K  ^[m[K
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:29:41:[m[K [01;31m[Kerror: [m[K‘[01m[Ktranslation2[m[K’ was not declared in this scope
+  postTranslationPoint = rotatedPoint + (translation2 - translation);
+[01;32m[K                                         ^[m[K
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:[m[K In member function ‘[01m[Kvirtual void OffsetPR::receivePose(geometry_msgs::Pose&)[m[K’:
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:26:2:[m[K [01;31m[Kerror: [m[K‘[01m[KMatrixXD[m[K’ is not a member of ‘[01m[KEigen[m[K’
+  Eigen::MatrixXD translation2 = rotation.matrix() * translation;
+[01;32m[K  ^[m[K
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:29:41:[m[K [01;31m[Kerror: [m[K‘[01m[Ktranslation2[m[K’ was not declared in this scope
+  postTranslationPoint = rotatedPoint + (translation2 - translation);
+[01;32m[K                                         ^[m[K
+make[2]: *** [CMakeFiles/hw5_nav_node.dir/src/OffsetPR.cpp.o] Error 1
+make[1]: *** [CMakeFiles/hw5_nav_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/hw5_node.dir/src/OffsetPR.cpp.o] Error 1
+make[1]: *** [CMakeFiles/hw5_node.dir/all] Error 2
+make: *** [all] Error 2

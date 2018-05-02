@@ -1,0 +1,7 @@
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/rso.cpp:[m[K In function ‘[01m[Kvoid navCallback(const ConstPtr&)[m[K’:
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/rso.cpp:36:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kclient[m[K’ was not declared in this scope
+     client.sendGoalAndWait(goal);
+[01;32m[K     ^[m[K
+make[2]: *** [CMakeFiles/hw5_node.dir/src/rso.cpp.o] Error 1
+make[1]: *** [CMakeFiles/hw5_node.dir/all] Error 2
+make: *** [all] Error 2

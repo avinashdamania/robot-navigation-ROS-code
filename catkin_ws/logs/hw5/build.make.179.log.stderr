@@ -1,0 +1,16 @@
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/hw5_nav_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/hw5_nav_node.cpp:39:25:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KNavPR::NavPR(tf::TransformListener*, MoveBaseClient*)[m[K’
+   NavPR navPR(&tf_l, &ac);
+[01;32m[K                         ^[m[K
+In file included from [01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/hw5_nav_node.cpp:8:0[m[K:
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/include/hw5/NavPR.h:14:3:[m[K [01;36m[Knote: [m[Kcandidate: NavPR::NavPR(tf::TransformListener&, MoveBaseClient&)
+   NavPR(tf::TransformListener &tf, MoveBaseClient &ac);
+[01;32m[K   ^[m[K
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/include/hw5/NavPR.h:14:3:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Ktf::TransformListener*[m[K’ to ‘[01m[Ktf::TransformListener&[m[K’
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/include/hw5/NavPR.h:12:7:[m[K [01;36m[Knote: [m[Kcandidate: NavPR::NavPR(const NavPR&)
+ class NavPR : public PoseRecipient {
+[01;32m[K       ^[m[K
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/include/hw5/NavPR.h:12:7:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 2 provided
+make[2]: *** [CMakeFiles/hw5_nav_node.dir/src/hw5_nav_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/hw5_nav_node.dir/all] Error 2
+make: *** [all] Error 2

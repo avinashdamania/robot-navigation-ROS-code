@@ -1,0 +1,10 @@
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/rso.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/rso.cpp:27:34:[m[K [01;31m[Kerror: [m[Kconversion from ‘[01m[Kstd::vector<std::__cxx11::basic_string<char> >::iterator {aka __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char>*, std::vector<std::__cxx11::basic_string<char> > >}[m[K’ to non-scalar type ‘[01m[Kstd::__cxx11::string {aka std::__cxx11::basic_string<char>}[m[K’ requested
+     string location = doors.begin();
+[01;32m[K                                  ^[m[K
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/rso.cpp:57:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kclient.actionlib::SimpleActionClient<ActionSpec>::getState<plan_execution::ExecutePlanAction_<std::allocator<void> > >[m[K’ does not have class type
+      for(int i = 0; !(client.getState.isDone()) && i < 50; i++) 
+[01;32m[K                       ^[m[K
+make[2]: *** [CMakeFiles/hw5_node.dir/src/rso.cpp.o] Error 1
+make[1]: *** [CMakeFiles/hw5_node.dir/all] Error 2
+make: *** [all] Error 2

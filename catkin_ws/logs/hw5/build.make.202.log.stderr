@@ -1,0 +1,7 @@
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/rso.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/rso.cpp:18:2:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K/[m[K’ token
+  /doors.push_back("d3_414b1");
+[01;32m[K  ^[m[K
+make[2]: *** [CMakeFiles/hw5_node.dir/src/rso.cpp.o] Error 1
+make[1]: *** [CMakeFiles/hw5_node.dir/all] Error 2
+make: *** [all] Error 2

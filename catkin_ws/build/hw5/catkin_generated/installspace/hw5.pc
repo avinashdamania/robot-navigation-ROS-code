@@ -1,0 +1,8 @@
+prefix=/home/users/fri/matthew_ws/catkin_ws/install
+
+Name: hw5
+Description: Description of hw5
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/users/fri/matthew_ws/catkin_ws/install/lib -lbwikractions
+Requires: actionlib_msgs bwi_msgs bwi_services message_runtime plan_execution roscpp std_msgs std_srvs

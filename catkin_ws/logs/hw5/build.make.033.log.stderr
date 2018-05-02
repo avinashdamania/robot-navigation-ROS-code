@@ -1,0 +1,26 @@
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:[m[K In member function ‘[01m[Kvirtual void OffsetPR::receivePose(geometry_msgs::Pose&)[m[K’:
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:32:18:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[KEigen::MatrixXd postTranslationPoint[m[K’
+  Eigen::MatrixXd postTranslationPoint = rotation.matrix() * zVector;
+[01;32m[K                  ^[m[K
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:21:18:[m[K [01;36m[Knote: [m[K‘[01m[KEigen::MatrixXd postTranslationPoint[m[K’ previously declared here
+  Eigen::MatrixXd postTranslationPoint(3,1);
+[01;32m[K                  ^[m[K
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:[m[K In member function ‘[01m[Kvirtual void OffsetPR::receivePose(geometry_msgs::Pose&)[m[K’:
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:32:18:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[KEigen::MatrixXd postTranslationPoint[m[K’
+  Eigen::MatrixXd postTranslationPoint = rotation.matrix() * zVector;
+[01;32m[K                  ^[m[K
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:21:18:[m[K [01;36m[Knote: [m[K‘[01m[KEigen::MatrixXd postTranslationPoint[m[K’ previously declared here
+  Eigen::MatrixXd postTranslationPoint(3,1);
+[01;32m[K                  ^[m[K
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:35:39:[m[K [01;31m[Kerror: [m[K‘[01m[KrotatedPoint[m[K’ was not declared in this scope
+  newPose.position.x = rotatedPoint(0,0);
+[01;32m[K                                       ^[m[K
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:35:39:[m[K [01;31m[Kerror: [m[K‘[01m[KrotatedPoint[m[K’ was not declared in this scope
+  newPose.position.x = rotatedPoint(0,0);
+[01;32m[K                                       ^[m[K
+make[2]: *** [CMakeFiles/hw5_nav_node.dir/src/OffsetPR.cpp.o] Error 1
+make[1]: *** [CMakeFiles/hw5_nav_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/hw5_node.dir/src/OffsetPR.cpp.o] Error 1
+make[1]: *** [CMakeFiles/hw5_node.dir/all] Error 2
+make: *** [all] Error 2

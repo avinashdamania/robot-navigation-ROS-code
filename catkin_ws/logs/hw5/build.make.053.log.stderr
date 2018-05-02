@@ -1,0 +1,20 @@
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:[m[K In member function ‘[01m[Kvirtual void OffsetPR::receivePose(geometry_msgs::Pose&)[m[K’:
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:34:2:[m[K [01;31m[Kerror: [m[K‘[01m[KEuler[m[K’ has not been declared
+  Euler::Quaterniond rot2(1, -1, 1, -1);
+[01;32m[K  ^[m[K
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:35:17:[m[K [01;31m[Kerror: [m[K‘[01m[Krot2[m[K’ was not declared in this scope
+  rotatedPoint = rot2.matrix() * rotatedPoint;
+[01;32m[K                 ^[m[K
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:[m[K In member function ‘[01m[Kvirtual void OffsetPR::receivePose(geometry_msgs::Pose&)[m[K’:
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:34:2:[m[K [01;31m[Kerror: [m[K‘[01m[KEuler[m[K’ has not been declared
+  Euler::Quaterniond rot2(1, -1, 1, -1);
+[01;32m[K  ^[m[K
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetPR.cpp:35:17:[m[K [01;31m[Kerror: [m[K‘[01m[Krot2[m[K’ was not declared in this scope
+  rotatedPoint = rot2.matrix() * rotatedPoint;
+[01;32m[K                 ^[m[K
+make[2]: *** [CMakeFiles/hw5_nav_node.dir/src/OffsetPR.cpp.o] Error 1
+make[1]: *** [CMakeFiles/hw5_nav_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/hw5_node.dir/src/OffsetPR.cpp.o] Error 1
+make[1]: *** [CMakeFiles/hw5_node.dir/all] Error 2
+make: *** [all] Error 2

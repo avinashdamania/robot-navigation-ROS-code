@@ -1,0 +1,6 @@
+[31m[1mCMake Error[0m at /home/users/fri/matthew_ws/catkin_ws/src/hw5/CMakeLists.txt:158 (target_link_libraries):
+  Cannot specify link libraries for target "hw5_nav_node" which is not built
+  by this project.
+
+
+make: *** [cmake_check_build_system] Error 1

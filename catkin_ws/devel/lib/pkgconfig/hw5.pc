@@ -1,0 +1,1 @@
+/home/users/fri/matthew_ws/catkin_ws/devel/.private/hw5/lib/pkgconfig/hw5.pc

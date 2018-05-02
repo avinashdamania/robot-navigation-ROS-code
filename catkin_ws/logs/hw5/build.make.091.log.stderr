@@ -1,0 +1,16 @@
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetFlipPR.cpp:[m[K In member function ‘[01m[Kvirtual void OffsetFlipPR::receivePose(geometry_msgs::Pose&)[m[K’:
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetFlipPR.cpp:8:59:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+ void OffsetFlipPR::receivePose(geometry_msgs::Pose &pose) {
+[01;32m[K                                                           ^[m[K
+make[2]: *** [CMakeFiles/hw5_nav_node.dir/src/OffsetFlipPR.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetFlipPR.cpp:[m[K In member function ‘[01m[Kvirtual void OffsetFlipPR::receivePose(geometry_msgs::Pose&)[m[K’:
+[01m[K/home/users/fri/matthew_ws/catkin_ws/src/hw5/src/OffsetFlipPR.cpp:8:59:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+ void OffsetFlipPR::receivePose(geometry_msgs::Pose &pose) {
+[01;32m[K                                                           ^[m[K
+make[2]: *** [CMakeFiles/hw5_node.dir/src/OffsetFlipPR.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/hw5_nav_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/hw5_node.dir/all] Error 2
+make: *** [all] Error 2
