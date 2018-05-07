@@ -1,2 +1,2 @@
 # robot-navigation-testing
-Experimental code/file sharing for robot navigation project
+Backend/ROS navigation code. Current status: completed
