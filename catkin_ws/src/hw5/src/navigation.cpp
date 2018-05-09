@@ -95,6 +95,7 @@ int main(int argc, char **argv) {
     ros::Subscriber sub = n.subscribe("roomNumber", 100, navCallback); // for retrieving navigation goals from the web interface
     ros::Subscriber sub2 = n.subscribe("stopNav", 100, stopNavCallback); // for retrieving stop requests from the web interface stop button
 
+    // calls available callbacks in the callback queue as fast as the rate allows
     ros::AsyncSpinner spinner(4);
     spinner.start();
     ros::waitForShutdown();
