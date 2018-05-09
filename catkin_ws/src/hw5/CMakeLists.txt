@@ -151,7 +151,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(hw5_node
-  src/rso.cpp        
+  src/navigation.cpp        
 )
 
 
